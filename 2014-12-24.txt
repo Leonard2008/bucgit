@@ -1,1 +1,4 @@
 This is a beginning! :
+
+git remote add bucg https://github.com/Leonard2008/bucgit.git
+
