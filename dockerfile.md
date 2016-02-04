@@ -1,34 +1,33 @@
-http://www.daocloud.io // mirror for docker hub
+$ docker rm $(docker ps -a -q)  // remove all docker containers
+$ docker stop $(docker ps -a -q) // stop all containers, use `docker ps -al` still can see
+$ docker rmi $(docker images -q) //remove all docker images
 
+$ docker commit -m='message' --author='author' <container_id> name/image_name:tag_name //save your work
+$ docker save image_id > image_saved.tar                 # docker load < saved.tar
+$ docker export container_id > container_exported.tar    # cat exported.tar | docker import - <image>:<tag>
+
+
+http://www.daocloud.io // mirror for docker hub
 
 $mkdir mydockerbuild
 $cd mydockerbuild
-
 $vi Dockerfile
-
 $ cat Dockerfile
 FROM docker/whalesay:latest
 RUN apt-get -y update && apt-get install -y fortunes
 CMD /usr/games/fortune -a | cowsay
 
 $ docker build -t docker-whale .
-
 $ docker run docker-whale
 
 $ docker login --username=maryatdocker --email=mary@docker.com
 $ docker push maryatdocker/docker-whale
-
 $ docker pull yourusername/docker-whale
 
 ------------
 https://docs.docker.com/engine/userguide/basics/
-
-$ docker run -i -t ubuntu /bin/bash 
--i interactive
--t terminal TTY
-
-$ docker daemon -H 0.0.0.0:5555 &
--H host for ip and port
+$ docker run -i -t ubuntu /bin/bash # -i interactive -t terminal TTY
+$ docker daemon -H 0.0.0.0:5555 &   # -H host for ip and port
 
 $ docker ps # Lists only running containers
 $ docker ps -a # Lists all containers
@@ -38,7 +37,6 @@ $ PORT=$(docker port $JOB 4444 | awk -F: '{ print $2 }')
 $ JOB=$(docker run -d -p 4444 ubuntu:12.10 /bin/nc -l 4444)
 $ docker logs $JOB  #$JOB==<container_id>
 $ docker kill $JOB  #stop, start, restart, rm, kill, ...
-
 
 $ docker commit <container> <some_name>
 
@@ -124,6 +122,9 @@ $ docker run -d -P --name web -v /src/webapp:/opt/webapp training/webapp python 
 ** container-dir must always be an absolute path **
 
 -------------
+** How to set up a local docker repository **
+http://www.centoscn.com/CentosServer/ftp/2015/0426/5280.html
+
 
 
 
