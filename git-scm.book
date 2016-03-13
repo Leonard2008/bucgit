@@ -1,0 +1,88 @@
+http://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E8%8E%B7%E5%8F%96-Git-%E4%BB%93%E5%BA%93
+
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+
+$ git config --global core.editor emacs
+$ git config --list
+
+$ git config user.name
+
+执行 git clone 命令的时候，默认配置下远程 Git 仓库中的每一个文件的每一个版本都将被拉取下来。
+$ git clone https://github.com/libgit2/libgit2 mylibgit
+
+$ git status
+$ git add
+$ git status -s (short)
+
+文件 .gitignore 的格式规范如下：
+所有空行或者以 ＃ 开头的行都会被 Git 忽略。
+可以使用标准的 glob 模式匹配。
+匹配模式可以以（/）开头防止递归。
+匹配模式可以以（/）结尾指定目录。
+要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号（!）取反。
+
+rm xx.md
+git rm xx.md
+
+git mv xx.md xx
+=> mv xx.md xx
+=> git rm xx.md
+=> git add xx
+
+git log
+
+$ git log --pretty=oneline
+
+$ git remote -v
+$ git remote 
+git remote add pb https://github.com/paulboone/ticgit
+
+git fetch [remote-name]
+git push [remote-name] master
+
+git remote show [remote-name]
+
+git remote rename [remote-name] [remote-name-2]
+git remote rm [remote-name-2]
+
+git tag
+
+git tag -a v1.0 -m 'my first tag'
+git show v1.0
+
+###
+git branch testing
+git checkout testing //HEAD to testing branch
+
+
+git checkout -b iss53
+==>git branch iss53
+==>git checkout iss53
+
+$ git checkout master
+$ git merge hotfix
+
+$ git branch -d hotfix //delete the branch hotfix
+
+$ git push (remote) (branch)
+$ git checkout -b serverfix origin/serverfix
+
+$ git branch -u origin/serverfix // set the local branch to track remote server's branch
+
+$ git pull = git fetch + git merge
+
+------------
+git clone --bare my_project my_project.git
+==>cp -Rf my_project/.git my_project.git
+
+scp -r my_project.git user@atwdk.com:/opt/git
+
+other clients
+git clone user@atwdk.comi:/opt/git/my_project.git
+git push user@atwdk.com:/opt/git/my_project.git master
+请记住这一点，如果只是和几个人在一个私有项目上合作的话，仅仅 是一个 SSH 服务器和裸仓库就足够了。
+
+
+
+
