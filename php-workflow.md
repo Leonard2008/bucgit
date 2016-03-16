@@ -4,3 +4,6 @@ https://github.com/zetacomponents/Workflow/tree/master/design
 https://github.com/onlab/BalnoWorkflow
 https://github.com/florianv/petrinet
 https://github.com/winzou/state-machine
+https://github.com/alterway/component-workflow
+http://www.yiiframework.com/extension/simpleworkflow/
+
